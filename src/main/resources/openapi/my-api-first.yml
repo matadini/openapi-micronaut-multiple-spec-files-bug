@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  version: '1.0.0'
+  title: 'OpenAPI BUG REST API'
+servers:
+  - url: 'localhost:3000'
+
+paths:
+  /api/v1/first:
+    get:
+      tags: [ custom-api-first ]
+      operationId: "firstGet"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FirstGetResponse'
+
+components:
+  schemas:
+    FirstGetResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        valueType:
+          type: string
+
+tags:
+  - name: custom-api-first
+    description: 'All API operations'
